@@ -1,9 +1,8 @@
 [deploy]
-healthcheckPath = "/health"
-healthcheckTimeout = 10
+healthcheckPath = "/health.php"
+healthcheckTimeout = 5
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
-startCommand = "chmod +x start_railway.sh && ./start_railway.sh"
 
 [env]
 PORT = "8000"

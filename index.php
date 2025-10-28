@@ -1,6 +1,6 @@
 <?php
-// Health check endpoint for Railway (absolute first thing)
-if ($_SERVER['REQUEST_URI'] === '/health' || $_SERVER['REQUEST_URI'] === '/healthz') {
+// Simple health check for Railway
+if ($_SERVER['REQUEST_URI'] === '/health.php') {
     header('Content-Type: application/json');
     header('HTTP/1.1 200 OK');
     echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
@@ -49,7 +49,6 @@ $page = $_GET['page'] ?? 'landing';
 $action = $_GET['action'] ?? '';
 $ticket_id = $_GET['id'] ?? '';
 $edit_id = $_GET['edit'] ?? '';
-
 
 // Handle form submissions
 error_log("Request method: " . ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
