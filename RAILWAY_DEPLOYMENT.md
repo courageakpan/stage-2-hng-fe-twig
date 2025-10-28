@@ -6,22 +6,21 @@ This guide will help you deploy the Ticket Management System to Railway.
 
 The following issues have been resolved to fix the 502 error on Railway:
 
-1. **Procfile Configuration**: Updated to use proper startup script
+1. **Procfile Configuration**: Simplified to avoid Nixpacks build issues
 2. **Database Storage**: Modified to use Railway's ephemeral filesystem (`/tmp`)
 3. **Session Configuration**: Added proper session settings for Railway environment
 4. **Error Handling**: Enhanced error reporting and debugging
-5. **Startup Script**: Created automated database initialization
-6. **Health Checks**: Added Railway-specific configuration
+5. **Health Checks**: Added Railway-specific configuration
+6. **Nixpacks Issues**: Removed complex build process to avoid derivation errors
 
 ## Files Modified/Created
 
-- `Procfile` - Updated to use startup script
-- `railway.toml` - New Railway configuration file
-- `start.sh` - New startup script for Railway
+- `Procfile` - Simplified to direct PHP commands
+- `railway.toml` - Railway configuration without Nixpacks
 - `config/database.php` - Modified for Railway filesystem
 - `index.php` - Enhanced error handling and session config
 - `setup.php` - Updated for Railway environment detection
-- `.htaccess` - New Apache configuration for proper routing
+- `.htaccess` - Apache configuration for proper routing
 
 ## Deployment Steps
 
