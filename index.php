@@ -1,6 +1,6 @@
 <?php
-// Simple health check for Railway
-if ($_SERVER['REQUEST_URI'] === '/health.php') {
+// Health check for Railway - check both root path and health.php
+if ($_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/health.php') {
     header('Content-Type: application/json');
     header('HTTP/1.1 200 OK');
     echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
