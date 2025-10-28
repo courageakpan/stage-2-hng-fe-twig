@@ -1,16 +1,4 @@
 <?php
-// Health check for Railway
-if ($_SERVER['REQUEST_URI'] === '/health' ||
-    $_SERVER['REQUEST_URI'] === '/health.php' ||
-    ($_SERVER['REQUEST_URI'] === '/' &&
-     ($_SERVER['HTTP_HOST'] === 'healthcheck.railway.app' ||
-      isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'Railway') !== false))) {
-    
-    header('Content-Type: application/json');
-    header('HTTP/1.1 200 OK');
-    echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
-    exit;
-}
 
 // Enable error reporting for debugging
 error_reporting(E_ALL);
