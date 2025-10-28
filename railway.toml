@@ -1,8 +1,9 @@
 [deploy]
-healthcheckPath = "/"
-healthcheckTimeout = 100
+healthcheckPath = "/health"
+healthcheckTimeout = 30
 restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 10
+restartPolicyMaxRetries = 5
+startCommand = "php setup.php && php -S 0.0.0.0:${PORT:-8000} index.php"
 
 [env]
 PORT = "8000"

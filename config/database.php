@@ -8,6 +8,12 @@ class Database {
         // Use /tmp for Railway's ephemeral storage or fallback to local
         $this->data_file = (getenv('RAILWAY_ENVIRONMENT') ? '/tmp/data.json' : 'data.json');
         
+        // Ensure directory exists
+        $dir = dirname($this->data_file);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        
         if (!file_exists($this->data_file)) {
             $this->initializeData();
         } else {
