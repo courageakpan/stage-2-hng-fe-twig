@@ -1,9 +1,0 @@
-[package]
-name = "ticket_management_twig"
-version = "1.0.0"
-
-[dependencies]
-"php" = ">=8.0"
-
-[run]
-command = "php -S 0.0.0.0:${PORT:-8080} -t ."
