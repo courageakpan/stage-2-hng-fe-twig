@@ -1,0 +1,6 @@
+[package]
+name = "ticketapp"
+version = "1.0.0"
+
+[command]
+start = "php -S 0.0.0.0:$PORT -t ."
