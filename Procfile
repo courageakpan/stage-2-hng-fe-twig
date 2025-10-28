@@ -1,1 +1,1 @@
-web: php -S 0.0.0.0:${PORT} -t .
+web: chmod +x start.sh && ./start.sh

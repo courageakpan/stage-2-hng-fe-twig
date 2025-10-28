@@ -1,4 +1,11 @@
 <?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Set content type header
+header('Content-Type: text/html; charset=UTF-8');
+
 require_once 'vendor/autoload.php';
 require_once 'config/database.php';
 require_once 'models/Ticket.php';
@@ -7,7 +14,10 @@ require_once 'models/User.php';
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-// Start session
+// Start session with proper settings
+ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_secure', getenv('RAILWAY_ENVIRONMENT') ? 1 : 0);
+ini_set('session.cookie_samesite', 'Lax');
 session_start();
 
 // Debug session at start

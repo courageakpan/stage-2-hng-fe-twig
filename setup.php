@@ -17,11 +17,17 @@ try {
     echo "\nSample data inserted successfully!\n";
     
     echo "\n✅ Setup completed successfully!\n";
-    echo "You can now access the application at: http://localhost/ticket_management_twig/\n";
-    echo "\nLogin credentials:\n";
-    echo "Admin: john@example.com / password\n";
-    echo "Agent: jane@example.com / password\n";
-    echo "User: tom@example.com / password\n";
+    
+    // Show appropriate URL based on environment
+    if (getenv('RAILWAY_ENVIRONMENT')) {
+        echo "Application is ready for Railway deployment!\n";
+    } else {
+        echo "You can now access the application at: http://localhost:8000/\n";
+        echo "\nLogin credentials:\n";
+        echo "Admin: john@example.com / password\n";
+        echo "Agent: jane@example.com / password\n";
+        echo "User: tom@example.com / password\n";
+    }
     
 } catch (Exception $e) {
     echo "❌ Setup failed: " . $e->getMessage() . "\n";

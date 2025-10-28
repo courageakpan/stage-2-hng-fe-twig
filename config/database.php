@@ -1,10 +1,13 @@
 <?php
 
 class Database {
-    private $data_file = 'data.json';
+    private $data_file;
     public $data;
 
     public function __construct() {
+        // Use /tmp for Railway's ephemeral storage or fallback to local
+        $this->data_file = (getenv('RAILWAY_ENVIRONMENT') ? '/tmp/data.json' : 'data.json');
+        
         if (!file_exists($this->data_file)) {
             $this->initializeData();
         } else {
