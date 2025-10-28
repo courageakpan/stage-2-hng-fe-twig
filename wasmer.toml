@@ -6,4 +6,5 @@ version = "1.0.0"
 php = ">=8.0"
 
 [run]
-command = "php -S 0.0.0.0:${PORT:-8080} -t ."
+command = "php -S 0.0.0.0:${PORT} -t ."
+
