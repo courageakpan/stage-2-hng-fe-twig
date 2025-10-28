@@ -1,4 +1,12 @@
 <?php
+// Health check endpoint for Railway (absolute first thing)
+if ($_SERVER['REQUEST_URI'] === '/health' || $_SERVER['REQUEST_URI'] === '/healthz') {
+    header('Content-Type: application/json');
+    header('HTTP/1.1 200 OK');
+    echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
+    exit;
+}
+
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -42,19 +50,6 @@ $action = $_GET['action'] ?? '';
 $ticket_id = $_GET['id'] ?? '';
 $edit_id = $_GET['edit'] ?? '';
 
-// Health check endpoint for Railway
-if ($_SERVER['REQUEST_URI'] === '/health' || $_SERVER['REQUEST_URI'] === '/healthz') {
-    header('Content-Type: application/json');
-    echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
-    exit;
-}
-
-// Root path health check
-if ($_SERVER['REQUEST_URI'] === '/' && ($_SERVER['HTTP_USER_AGENT'] ?? '') === 'Railway-HealthCheck') {
-    header('Content-Type: application/json');
-    echo json_encode(['status' => 'healthy', 'timestamp' => date('c')]);
-    exit;
-}
 
 // Handle form submissions
 error_log("Request method: " . ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
