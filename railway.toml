@@ -2,8 +2,9 @@
 builder = "nixpacks"
 
 [deploy]
-healthcheckPath = "/"
-healthcheckTimeout = 30
+healthcheckPath = "/health"
+healthcheckTimeout = 60
 
 [env]
 PORT = "8000"
+RAILWAY_HEALTHCHECK_TIMEOUT_SEC = "60"
