@@ -2,7 +2,7 @@
 name = "ticket-management"
 
 [build]
-builder = "dockerfile"
+builder = "nixpacks"
 
 [run]
 command = "php -S 0.0.0.0:${PORT:-8080} -t ."
