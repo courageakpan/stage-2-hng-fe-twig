@@ -4,9 +4,7 @@ nixPkgs = ["php83", "zip", "curl", "unzip"]
 [phases.build]
 cmds = [
     "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
-    "composer install --no-dev --optimize-autoloader",
-    "mkdir -p public",
-    "cp -r vendor public/ || true"
+    "composer install --no-dev --optimize-autoloader"
 ]
 
 [start]
