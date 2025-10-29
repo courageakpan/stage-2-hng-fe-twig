@@ -1,1 +1,1 @@
-web: php -S 0.0.0.0:$PORT -t .
+sh -c 'PORT=9000 php -S 0.0.0.0:$PORT -t .'

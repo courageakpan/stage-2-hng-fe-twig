@@ -1,3 +1,0 @@
-# Railway configuration
-PORT=8000
-PHP_INI_SCAN_DIR=/app
