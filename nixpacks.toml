@@ -10,9 +10,10 @@ nixPkgs = [
 [phases.build]
 cmds = [
   "echo 'Installing Composer...'",
-  "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
+  # Install composer to /usr/bin instead of /usr/local/bin
+  "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer",
   "echo 'Running composer install...'",
-  "composer install --no-dev --optimize-autoloader"
+  "/usr/bin/composer install --no-dev --optimize-autoloader"
 ]
 
 [start]
